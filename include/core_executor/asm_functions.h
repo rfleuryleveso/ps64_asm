@@ -49,11 +49,4 @@ namespace MachineAsm {
 }
 
 
-
-
-
-
-
-
-
 #endif  // P64_ASM_ASM_FUNCTIONS_H
