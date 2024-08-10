@@ -1,4 +1,4 @@
-project('p64', 'cpp')
+project('ps64', 'cpp')
 
 sources = [
     'src/main.cpp',
@@ -6,7 +6,9 @@ sources = [
     'src/machine_memory/machine_memory.cpp',
     'src/machine/machine.cpp',
     'src/utils/args/arg_slice.cpp',
-    'src/machine_core/machine_core.cpp'
+    'src/machine_core/machine_core.cpp',
+    'src/core_executor/core_executor.cpp',
+    'src/core_executor/asm_functions.cpp'
 ]
 
 # Dependency for spdlog

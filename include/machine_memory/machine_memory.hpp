@@ -14,6 +14,12 @@ class MachineMemory {
   MachineMemorySlice* addSlice(uint64_t size, uint64_t flags,
                                uintptr_t guest_address);
   ~MachineMemory();
+
+  /**
+   * Returns the host address from the guest address. non aligned slices are handled.
+   * @return host address, or guest address
+   */
+  uintptr_t getHostAddressFromGuestAddress(uintptr_t guest_address);
 };
 
 

@@ -10,6 +10,7 @@ class MachineMemorySlice {
   uint64_t size;
 
   uintptr_t host_address;
+
   uintptr_t guest_address;
 
   uint64_t flags;
@@ -27,6 +28,10 @@ class MachineMemorySlice {
   uintptr_t getHostAddress();
 
   uintptr_t getGuestAddress();
+
+  void hostLock();
+
+  void hostUnlock();
 };
 
 #endif  // P64_ASM_MACHINE_MEMORY_SLICE_HPP
