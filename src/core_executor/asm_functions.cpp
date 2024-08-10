@@ -21,10 +21,15 @@ MachineAsm::asm_function MachineAsm::functions[MACHINEASM_OPCODE_MAX + 1] = {
     MachineAsm::OUT
 };
 
+
 inline void MachineAsm::ADD(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
   auto * op_code = static_cast<uint64_t*>(host_ip);
 
   spdlog::info("OPCODE = {}", *op_code);
+  uint64_t* destination = op_code + 1 * sizeof(uint64_t);
+  uint64_t* source = op_code + 1 * sizeof(uint64_t);
+
+  // TODO: Resolve destination & source operands
 
   machine_core->setIp(machine_core->getIp()+ 3 * sizeof(uint64_t));
 }
