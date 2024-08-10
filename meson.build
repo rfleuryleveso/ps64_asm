@@ -1,7 +1,6 @@
 project('ps64', 'cpp')
 
 sources = [
-    'src/main.cpp',
     'src/machine_memory/machine_memory_slice.cpp',
     'src/machine_memory/machine_memory.cpp',
     'src/machine/machine.cpp',
@@ -24,9 +23,27 @@ spdlog_dep = spdlog.get_variable('spdlog_dep')
 
 inc_dirs = include_directories('include')
 
-executable('p64', 
-           sources,
+exe = executable('p64',
+           sources: sources + ['src/main.cpp'],
            include_directories : inc_dirs,
            dependencies : [argtable3_dep, spdlog_dep],
            install: true
 )
+
+test_sources = [
+    'tests/test_setup.cpp'
+]
+
+
+gtest = subproject('gtest')
+gtest_dep = gtest.get_variable('gtest_dep')
+
+
+test_executable = executable('p64_tests',
+                 sources: sources + test_sources,
+                 include_directories : inc_dirs,
+                 dependencies : [argtable3_dep, spdlog_dep, gtest_dep],
+                 install: true
+)
+
+test('gtest', test_executable, protocol: 'gtest')
