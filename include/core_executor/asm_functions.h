@@ -20,11 +20,12 @@
 #define MACHINEASM_POP 8
 #define MACHINEASM_CALL 9
 #define MACHINEASM_RET 10
-#define MACHINEASM_JMP 10
+#define MACHINEASM_JMP 11
+#define MACHINEASM_OUT 12
 
 
 
-#define MACHINEASM_OPCODE_MAX 9
+#define MACHINEASM_OPCODE_MAX 12
 
 namespace MachineAsm {
   typedef void (*asm_function)(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
@@ -40,6 +41,9 @@ namespace MachineAsm {
   void PUSH(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
   void POP(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
   void CALL(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
+  void RET(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
+  void JMP(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
+  void OUT(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip);
 
   extern asm_function functions[MACHINEASM_OPCODE_MAX + 1];
 }

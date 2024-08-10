@@ -16,6 +16,9 @@ MachineAsm::asm_function MachineAsm::functions[MACHINEASM_OPCODE_MAX + 1] = {
     MachineAsm::PUSH,
     MachineAsm::POP,
     MachineAsm::CALL,
+    MachineAsm::RET,
+    MachineAsm::JMP,
+    MachineAsm::OUT
 };
 
 inline void MachineAsm::ADD(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
@@ -45,12 +48,25 @@ inline void MachineAsm::XOR(MachineCore* machine_core, MachineMemory* machine_me
 inline void MachineAsm::CMP(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
 
 }
+
 inline void MachineAsm::PUSH(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
 
 }
+
 inline void MachineAsm::POP(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
 
 }
+
 inline void MachineAsm::CALL(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
+
+}
+
+inline void MachineAsm::RET(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
+
+}
+inline void MachineAsm::JMP(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
+
+}
+inline void MachineAsm::OUT(MachineCore* machine_core, MachineMemory* machine_memory, void* host_ip) {
 
 }
